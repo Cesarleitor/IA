@@ -21,6 +21,11 @@ async function cliqueiNobotao() {
     let codigo = document.querySelector(".area-codigo")
     let areaResultado = document.querySelector(".area-resultado")
 
+    let botao = document.querySelector(".botao-magica")
+    botao.disabled = true;
+    botao.textContent = "Criando.."
+    botao.style.backgroud = "#88888"
+
     let resposta = await fetch(webhook, {
         method: 'POST',
         headers: { 'Content-Type' : 'application/json'},
@@ -35,5 +40,9 @@ async function cliqueiNobotao() {
     areaResultado.innerHTML = info.preview
 
     document.head.insertAdjacentHTML('beforeend', "<style>" + info.style + "</style>")
+
+    botao.disabled = true;
+    botao.textContent = "Criar Mágica"
+    botao.style.backgroud = "#37e359"
     
 }
